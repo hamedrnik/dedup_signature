@@ -18,15 +18,18 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```rust
 extern crate dedup_signature;
+
 use dedup_signature::generator::*;
 
-let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
+fn main(){
+  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
 
-let text = r#"Liberty, in philosophy, involves free will as contrasted with determinism.[1] In politics, liberty consists of the social and political freedoms enjoyed by all citizens.[2] In theology, liberty is freedom from the bondage of sin.[3] Generally, liberty seems to be distinct from freedom in that freedom concerns itself primarily, if not exclusively, with the ability to do as one wills and what one has the power to do; whereas liberty also takes into account the rights of all involved. As such, liberty can be thought of as freedom limited by rights, and therefore cannot be abused."#;
+  let text = r#"Liberty, in philosophy, involves free will as contrasted with determinism.[1] In politics, liberty consists of the social and political freedoms enjoyed by all citizens.[2] In theology, liberty is freedom from the bondage of sin.[3] Generally, liberty seems to be distinct from freedom in that freedom concerns itself primarily, if not exclusively, with the ability to do as one wills and what one has the power to do; whereas liberty also takes into account the rights of all involved. As such, liberty can be thought of as freedom limited by rights, and therefore cannot be abused."#;
 
-let sign = profile_generator.generate_sign(&text);
+  let sign = profile_generator.generate_sign(&text);
 
-assert_eq!("6274be1f2560d8c9b8d344513d0b3942", sign);
+  assert_eq!("6274be1f2560d8c9b8d344513d0b3942", sign);
+}
 ```
 
 ## Documentation for options
