@@ -1,0 +1,15 @@
+[package]
+name = "dedup_signature"
+version = "0.1.0"
+authors = ["Hamed R. Nik <hamed.r.nik@gmail.com>"]
+license = "LGPL-3.0"
+readme = "README.md"
+description = "Deduplication Signature generates a hash of textual fields for deduplication. Currently it supports only Text Profile Signature."
+repository = "https://github.com/iCEAGE/dedup_signature"
+keywords = ["text deduplication", "fuzzy hash", "text profile signature"]
+
+[dependencies]
+rust-crypto = "^0.2"
+
+[dev-dependencies]
+yaml-rust = "0.3.4"
