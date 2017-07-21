@@ -25,75 +25,77 @@ use std::env;
 use dedup_signature::generator::*;
 
 fn get_wikipedia_article(lang: &str) -> (String, String) {
-  let mut filename = String::from("liberty_article_from_");
-  filename.push_str(lang);
-  filename.push_str("_wikipedia.yaml");
-  
-  let path = env::current_dir().unwrap().join("tests/fixtures").join(filename);
-  
-  let mut f = File::open(path).unwrap();
-  let mut s = String::new();
-  let _ = f.read_to_string(&mut s);
-  let docs = YamlLoader::load_from_str(&s).unwrap();
-  
-  let doc = &docs[0];
-  let article = String::from(doc[":article"].as_str().unwrap());
-  let signature = String::from(doc[":signature"].as_str().unwrap());
-  
-  (article, signature)
+    let mut filename = String::from("liberty_article_from_");
+    filename.push_str(lang);
+    filename.push_str("_wikipedia.yaml");
+
+    let path = env::current_dir().unwrap().join("tests/fixtures").join(
+        filename,
+    );
+
+    let mut f = File::open(path).unwrap();
+    let mut s = String::new();
+    let _ = f.read_to_string(&mut s);
+    let docs = YamlLoader::load_from_str(&s).unwrap();
+
+    let doc = &docs[0];
+    let article = String::from(doc[":article"].as_str().unwrap());
+    let signature = String::from(doc[":signature"].as_str().unwrap());
+
+    (article, signature)
 }
 
 
 #[test]
 fn test_en_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("en");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("en");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
 
 #[test]
 fn test_de_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("de");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("de");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
 
 #[test]
 fn test_es_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("es");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("es");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
 
 #[test]
 fn test_fr_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("fr");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("fr");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
 
 #[test]
 fn test_it_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("it");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("it");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
 
 #[test]
 fn test_pt_lang() {
-  let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
-  let (article, expected_sign) = get_wikipedia_article("pt");
-  let sign = profile_generator.generate_sign(&article);
-  
-  assert_eq!(expected_sign, sign);
+    let profile_generator = TextProfileSignature { ..TextProfileSignature::default() };
+    let (article, expected_sign) = get_wikipedia_article("pt");
+    let sign = profile_generator.generate_sign(&article);
+
+    assert_eq!(expected_sign, sign);
 }
