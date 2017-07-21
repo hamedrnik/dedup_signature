@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/iCEAGE/dedup_signature.svg?branch=master)](https://travis-ci.org/iCEAGE/dedup_signature)
+
 # Deduplication Signature
 
 Deduplication Signature generates a hash of textual fields for deduplication. Currently it only supports [TextProfileSignature](https://wiki.apache.org/solr/TextProfileSignature).
