@@ -1,8 +1,12 @@
 [![Build Status](https://travis-ci.org/iCEAGE/dedup_signature.svg?branch=master)](https://travis-ci.org/iCEAGE/dedup_signature)
 
-# Deduplication Signature
+# De-duplication Signature
 
-Deduplication Signature generates a hash of textual fields for deduplication. Currently it only supports [TextProfileSignature](https://wiki.apache.org/solr/TextProfileSignature).
+This library implements algorithms to generates a hash/signature in order to de-duplicate documents. A signature can be implemented in a few ways:
+
+* [Lookup3](http://burtleburtle.net/bob/c/lookup3.c): 64-bit hash used for exact duplicate detection. This is much faster than MD5 and smaller to store.
+* [TextProfileSignature](http://wiki.apache.org/solr/TextProfileSignature): Fuzzy hashing implementation from Apache Nutch for near duplicate detection. It's tunable but works best on longer text.
+
 
 ## Installation
 

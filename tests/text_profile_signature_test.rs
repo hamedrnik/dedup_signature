@@ -22,7 +22,7 @@ use yaml_rust::YamlLoader;
 use std::io::prelude::*;
 use std::fs::File;
 use std::env;
-use dedup_signature::generator::*;
+use dedup_signature::generator::text_profile_signature::TextProfileSignature;
 
 fn get_wikipedia_article(lang: &str) -> (String, String) {
     let mut filename = String::from("liberty_article_from_");

@@ -12,4 +12,4 @@ keywords = ["deduplication", "fuzzy", "hash", "profile", "signature"]
 rust-crypto = "^0.2"
 
 [dev-dependencies]
-yaml-rust = "0.3.4"
+yaml-rust = "^0.3"
