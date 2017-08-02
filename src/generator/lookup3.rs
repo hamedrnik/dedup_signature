@@ -1,8 +1,8 @@
-fn rot(x: i32, k: usize) -> i32 {
-    ((x << k) | ((x as u32) >> (32 - k)) as i32)
+fn rot(x: u32, k: usize) -> u32 {
+    ((x << k) | (x >> (32 - k)))
 }
 
-fn mix(mut a: i32, mut b: i32, mut c: i32) -> (i32, i32, i32) {
+fn mix(mut a: u32, mut b: u32, mut c: u32) -> (u32, u32, u32) {
     a = a.wrapping_sub(c);  a ^= rot(c, 4);  c = c.wrapping_add(b);
     b = b.wrapping_sub(a);  b ^= rot(a, 6);  a = a.wrapping_add(c);
     c = c.wrapping_sub(b);  c ^= rot(b, 8);  b = b.wrapping_add(a);
@@ -13,7 +13,7 @@ fn mix(mut a: i32, mut b: i32, mut c: i32) -> (i32, i32, i32) {
     (a, b, c)
 }
 
-fn do_final(mut a: i32, mut b: i32, mut c: i32) -> i32 {
+fn do_final(mut a: u32, mut b: u32, mut c: u32) -> u32 {
     c ^= b; c = c.wrapping_sub(rot(b,14));
     a ^= c; a = a.wrapping_sub(rot(c,11));
     b ^= a; b = b.wrapping_sub(rot(a,25));
@@ -25,11 +25,11 @@ fn do_final(mut a: i32, mut b: i32, mut c: i32) -> i32 {
     c
 }
 
-pub fn lookup3(k: &[i32], offset: i32, mut length: usize, initval: i32) -> i32 {
+pub fn lookup3(k: &[u32], offset: u32, mut length: usize, initval: u32) -> u32 {
     // Set up the internal state
-    let mut a: i32 = 0xdeadbeef + ((length as i32) << 2) as i32 + initval;
-    let mut b: i32 = 0xdeadbeef + ((length as i32) << 2) as i32 + initval;
-    let mut c: i32 = 0xdeadbeef + ((length as i32) << 2) as i32 + initval;
+    let mut a: u32 = 0xdeadbeef + ((length as u32) << 2) + initval;
+    let mut b: u32 = 0xdeadbeef + ((length as u32) << 2) + initval;
+    let mut c: u32 = 0xdeadbeef + ((length as u32) << 2) + initval;
 
     //------------------------------------------------- handle most of the key
     let mut i = offset as usize;
@@ -47,7 +47,7 @@ pub fn lookup3(k: &[i32], offset: i32, mut length: usize, initval: i32) -> i32 {
         i += 3;
     }
 
-    //------------------------------------------- handle the last 3 uint32_t's
+    //--------------------------- handle the last 3 u32's and report the result
 
     match length {
         3 => {

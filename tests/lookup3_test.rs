@@ -19,13 +19,13 @@ fn test_equals_lookup3() {
     ];
 
     let s = "hello world";
-    let mut a: [i32; 11] = [0; 11];
+    let mut a: [u32; 11] = [0; 11];
 
     for (i, c) in s.chars().enumerate() {
-        a[i] = c as i32;
+        a[i] = c as u32;
         let len = i + 1;
-        let hash = lookup3(&a, 0, len as usize, (i * 12345) as i32);
-        assert_eq!(hashes[i] as i32, hash);
+        let hash = lookup3(&a, 0, len as usize, (i * 12345) as u32);
+        assert_eq!(hashes[i] as u32, hash);
     }
 }
 
@@ -44,12 +44,12 @@ fn test_equals_lookup3_persian_string() {
     ];
 
     let s = "سلام دنیا";
-    let mut a: [i32; 9] = [0; 9];
+    let mut a: [u32; 9] = [0; 9];
 
     for (i, c) in s.chars().enumerate() {
-        a[i] = c as i32;
+        a[i] = c as u32;
         let len = i + 1;
-        let hash = lookup3(&a, 0, len as usize, (i * 12345) as i32);
-        assert_eq!(hashes[i] as i32, hash);
+        let hash = lookup3(&a, 0, len as usize, (i * 12345) as u32);
+        assert_eq!(hashes[i] as u32, hash);
     }
 }
