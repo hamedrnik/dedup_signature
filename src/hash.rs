@@ -7,48 +7,86 @@ fn rot_u64(x: u64, k: usize) -> u64 {
 }
 
 fn mix(mut a: u32, mut b: u32, mut c: u32) -> (u32, u32, u32) {
-    a = a.wrapping_sub(c);  a ^= rot(c, 4);  c = c.wrapping_add(b);
-    b = b.wrapping_sub(a);  b ^= rot(a, 6);  a = a.wrapping_add(c);
-    c = c.wrapping_sub(b);  c ^= rot(b, 8);  b = b.wrapping_add(a);
-    a = a.wrapping_sub(c);  a ^= rot(c,16);  c = c.wrapping_add(b);
-    b = b.wrapping_sub(a);  b ^= rot(a,19);  a = a.wrapping_add(c);
-    c = c.wrapping_sub(b);  c ^= rot(b, 4);  b = b.wrapping_add(a);
-    
+    a = a.wrapping_sub(c);
+    a ^= rot(c, 4);
+    c = c.wrapping_add(b);
+    b = b.wrapping_sub(a);
+    b ^= rot(a, 6);
+    a = a.wrapping_add(c);
+    c = c.wrapping_sub(b);
+    c ^= rot(b, 8);
+    b = b.wrapping_add(a);
+    a = a.wrapping_sub(c);
+    a ^= rot(c, 16);
+    c = c.wrapping_add(b);
+    b = b.wrapping_sub(a);
+    b ^= rot(a, 19);
+    a = a.wrapping_add(c);
+    c = c.wrapping_sub(b);
+    c ^= rot(b, 4);
+    b = b.wrapping_add(a);
+
     (a, b, c)
 }
 
 fn mix_u64(mut a: u64, mut b: u64, mut c: u64) -> (u64, u64, u64) {
-    a = a.wrapping_sub(c);  a ^= rot_u64(c, 4);  c = c.wrapping_add(b);
-    b = b.wrapping_sub(a);  b ^= rot_u64(a, 6);  a = a.wrapping_add(c);
-    c = c.wrapping_sub(b);  c ^= rot_u64(b, 8);  b = b.wrapping_add(a);
-    a = a.wrapping_sub(c);  a ^= rot_u64(c,16);  c = c.wrapping_add(b);
-    b = b.wrapping_sub(a);  b ^= rot_u64(a,19);  a = a.wrapping_add(c);
-    c = c.wrapping_sub(b);  c ^= rot_u64(b, 4);  b = b.wrapping_add(a);
-    
+    a = a.wrapping_sub(c);
+    a ^= rot_u64(c, 4);
+    c = c.wrapping_add(b);
+    b = b.wrapping_sub(a);
+    b ^= rot_u64(a, 6);
+    a = a.wrapping_add(c);
+    c = c.wrapping_sub(b);
+    c ^= rot_u64(b, 8);
+    b = b.wrapping_add(a);
+    a = a.wrapping_sub(c);
+    a ^= rot_u64(c, 16);
+    c = c.wrapping_add(b);
+    b = b.wrapping_sub(a);
+    b ^= rot_u64(a, 19);
+    a = a.wrapping_add(c);
+    c = c.wrapping_sub(b);
+    c ^= rot_u64(b, 4);
+    b = b.wrapping_add(a);
+
     (a, b, c)
 }
 
 fn do_final(mut a: u32, mut b: u32, mut c: u32) -> u32 {
-    c ^= b; c = c.wrapping_sub(rot(b,14));
-    a ^= c; a = a.wrapping_sub(rot(c,11));
-    b ^= a; b = b.wrapping_sub(rot(a,25));
-    c ^= b; c = c.wrapping_sub(rot(b,16));
-    a ^= c; a = a.wrapping_sub(rot(c,4)); 
-    b ^= a; b = b.wrapping_sub(rot(a,14));
-    c ^= b; c = c.wrapping_sub(rot(b,24));
-    
+    c ^= b;
+    c = c.wrapping_sub(rot(b, 14));
+    a ^= c;
+    a = a.wrapping_sub(rot(c, 11));
+    b ^= a;
+    b = b.wrapping_sub(rot(a, 25));
+    c ^= b;
+    c = c.wrapping_sub(rot(b, 16));
+    a ^= c;
+    a = a.wrapping_sub(rot(c, 4));
+    b ^= a;
+    b = b.wrapping_sub(rot(a, 14));
+    c ^= b;
+    c = c.wrapping_sub(rot(b, 24));
+
     c
 }
 
 fn do_final_u64(mut a: u64, mut b: u64, mut c: u64) -> u64 {
-    c ^= b; c = c.wrapping_sub(rot_u64(b,14));
-    a ^= c; a = a.wrapping_sub(rot_u64(c,11));
-    b ^= a; b = b.wrapping_sub(rot_u64(a,25));
-    c ^= b; c = c.wrapping_sub(rot_u64(b,16));
-    a ^= c; a = a.wrapping_sub(rot_u64(c,4)); 
-    b ^= a; b = b.wrapping_sub(rot_u64(a,14));
-    c ^= b; c = c.wrapping_sub(rot_u64(b,24));
-    
+    c ^= b;
+    c = c.wrapping_sub(rot_u64(b, 14));
+    a ^= c;
+    a = a.wrapping_sub(rot_u64(c, 11));
+    b ^= a;
+    b = b.wrapping_sub(rot_u64(a, 25));
+    c ^= b;
+    c = c.wrapping_sub(rot_u64(b, 16));
+    a ^= c;
+    a = a.wrapping_sub(rot_u64(c, 4));
+    b ^= a;
+    b = b.wrapping_sub(rot_u64(a, 14));
+    c ^= b;
+    c = c.wrapping_sub(rot_u64(b, 24));
+
     c
 }
 
