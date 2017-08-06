@@ -19,13 +19,7 @@ impl Lookup3Signature {
             hash = lookup3(&a, 0, len as usize, hash);
         }
 
-        format!(
-            "{:x}{:x}{:x}{:x}",
-            (hash >> 24) as u8,
-            (hash >> 16) as u8,
-            (hash >> 8) as u8,
-            (hash >> 0) as u8
-        )
+        format!("{:08x}", hash)
     }
 
     pub fn generate_sign_64(&self, text: &str) -> String {
@@ -38,16 +32,6 @@ impl Lookup3Signature {
             hash = lookup3_u64(&a, 0, len as usize, hash);
         }
 
-        format!(
-            "{:x}{:x}{:x}{:x}{:x}{:x}{:x}{:x}",
-            (hash >> 56) as u8,
-            (hash >> 48) as u8,
-            (hash >> 40) as u8,
-            (hash >> 32) as u8,
-            (hash >> 24) as u8,
-            (hash >> 16) as u8,
-            (hash >> 8) as u8,
-            (hash >> 0) as u8
-        )
+        format!("{:016x}", hash)
     }
 }

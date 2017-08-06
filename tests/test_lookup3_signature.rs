@@ -5,7 +5,7 @@ use dedup_signature::generator::lookup3_signature::*;
 #[test]
 fn test_en_word() {
     let profile_generator = Lookup3Signature { ..Lookup3Signature::default() };
-    let expected_sign = "17856d1";
+    let expected_sign = "170856d1";
     let article = "hello world";
     let sign = profile_generator.generate_sign(&article);
 
