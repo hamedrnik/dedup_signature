@@ -1,6 +1,5 @@
-// Deduplication Signature generates a hash of textual fields for deduplication.
-// Currently it supports only Text Profile Signature.
-// Copyright (C) 2016  Hamed Ramezanian Nik
+// De-duplication Signature generates a hash of textual fields for de-duplication.
+// Copyright 2016-2017 Hamed Ramezanian Nik
 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by

@@ -1,3 +1,19 @@
+// De-duplication Signature generates a hash of textual fields for de-duplication.
+// Copyright 2016-2017 Hamed Ramezanian Nik
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 fn rot(x: u32, k: usize) -> u32 {
     ((x << k) | (x >> (32 - k)))
 }
@@ -44,6 +60,8 @@ fn do_final(mut a: u32, mut b: u32, mut c: u32) -> u32 {
     c
 }
 
+// A Rust implementation of hashword from lookup3.c by Bob Jenkins
+// (<a href="http://burtleburtle.net/bob/c/lookup3.c">original source</a>).
 pub fn lookup3(k: &Vec<u32>, offset: u32, mut length: usize, initval: u32) -> u32 {
     // Set up the internal state
     let mut a: u32 = 0xdeadbeef;
