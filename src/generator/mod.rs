@@ -16,4 +16,4 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 pub mod text_profile_signature;
-pub mod lookup3;
+pub mod lookup3_signature;

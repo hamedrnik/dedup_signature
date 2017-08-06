@@ -20,3 +20,4 @@
 extern crate crypto;
 
 pub mod generator;
+mod hash;
