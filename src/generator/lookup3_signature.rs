@@ -27,7 +27,7 @@ impl Lookup3Signature {
         let mut hash = self.seed;
 
         for (i, c) in text.chars().enumerate() {
-            a[i] = c as u64;
+            a[i] = c as u32;
             let len = i + 1;
             hash = lookup3_u64(&a, 0, len as usize, hash);
         }

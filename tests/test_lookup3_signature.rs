@@ -15,7 +15,7 @@ fn test_en_word() {
 #[test]
 fn test_en_word_u64_sign() {
     let profile_generator = Lookup3Signature { ..Lookup3Signature::default() };
-    let expected_sign = "5a43cb2e4d875e66";
+    let expected_sign = "f6d312543873dc23";
     let article = "hello world";
     let sign = profile_generator.generate_sign_64(&article);
 
