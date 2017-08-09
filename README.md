@@ -2,7 +2,7 @@
 
 # De-duplication Signature
 
-This library implements algorithms to generates a hash/signature/footprint in order to be used for detecting duplicate documents. The algorithms are suitable for long text such as a news article or web page. A signature can be implemented in a few ways:
+This library implements algorithms to generate a hash/signature/footprint in order to be used for detecting duplicate documents. The algorithms are suitable for long text such as a news article or web page. A signature can be implemented in a few ways:
 
 * [TextProfileSignature](http://wiki.apache.org/solr/TextProfileSignature): Fuzzy hashing implementation from Apache Nutch for near duplicate detection. It's tunable but works best on longer text.
 * [Lookup3](http://burtleburtle.net/bob/c/lookup3.c): 64-bit hash used for exact duplicate detection. This is much faster than MD5 and smaller to store.
@@ -53,7 +53,7 @@ Then you need to create a profile struct with the default parameters:
 let profile_generator = TextProfileSignature{ ..TextProfileSignature::default() };
 ````
 
-Finally, you can generate your signature by calling the generate_sign method:
+Finally, you can generate your signature by calling the `generate_sign` method:
 ````rust
 let text = r#"Liberty, in philosophy, involves free will as contrasted with determinism.[1] In politics, liberty consists of the social and political freedoms enjoyed by all citizens.[2] In theology, liberty is freedom from the bondage of sin.[3] Generally, liberty seems to be distinct from freedom in that freedom concerns itself primarily, if not exclusively, with the ability to do as one wills and what one has the power to do; whereas liberty also takes into account the rights of all involved. As such, liberty can be thought of as freedom limited by rights, and therefore cannot be abused."#;
 
@@ -85,7 +85,7 @@ Then you need to create a profile struct with the default parameters:
 let profile_generator = Lookup3Signature { ..Lookup3Signature::default() };
 ````
 
-Finally, you can generate your signature by calling the generate_sign method:
+Finally, you can generate your signature by calling the `generate_sign_64` method:
 ````rust
 let text = r#"Liberty, in philosophy, involves free will as contrasted with determinism.[1] In politics, liberty consists of the social and political freedoms enjoyed by all citizens.[2] In theology, liberty is freedom from the bondage of sin.[3] Generally, liberty seems to be distinct from freedom in that freedom concerns itself primarily, if not exclusively, with the ability to do as one wills and what one has the power to do; whereas liberty also takes into account the rights of all involved. As such, liberty can be thought of as freedom limited by rights, and therefore cannot be abused."#;
 
