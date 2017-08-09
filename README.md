@@ -15,7 +15,7 @@ This library implements algorithms to generates a hash/signature/footprint in or
 Add this to the Cargo.toml:
 
     [dependencies]
-    dedup_signature = "^0.2.0"
+    dedup_signature = "^0.2.1"
 
 
 ## Getting Started

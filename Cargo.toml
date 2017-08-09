@@ -1,6 +1,6 @@
 [package]
 name = "dedup_signature"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Hamed R. Nik <hamed.r.nik@gmail.com>"]
 license = "LGPL-3.0"
 readme = "README.md"
