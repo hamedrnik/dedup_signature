@@ -6,7 +6,7 @@ license = "LGPL-3.0"
 readme = "README.md"
 description = "This library implements TextProfileSignature and Lookup3 algorithms to generates a hash/signature/footprint in order to be used for detecting duplicate documents."
 repository = "https://github.com/iCEAGE/dedup_signature"
-keywords = ["de-duplication", "fuzzy", "hash", "profile", "signature", "lookup3", "fingerprint", "text_profile_signature", "text"]
+keywords = ["de-duplication", "fuzzy", "hash", "signature", "lookup3"]
 
 [dependencies]
 rust-crypto = "^0.2"
