@@ -1,12 +1,12 @@
 [package]
 name = "dedup_signature"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Hamed R. Nik <hamed.r.nik@gmail.com>"]
 license = "LGPL-3.0"
 readme = "README.md"
-description = "Deduplication Signature generates a hash of textual fields for deduplication. Currently it supports only Text Profile Signature."
+description = "This library implements TextProfileSignature and Lookup3 algorithms to generates a hash/signature/footprint in order to be used for detecting duplicate documents."
 repository = "https://github.com/iCEAGE/dedup_signature"
-keywords = ["deduplication", "fuzzy", "hash", "profile", "signature"]
+keywords = ["de-duplication", "fuzzy", "hash", "profile", "signature", "lookup3", "fingerprint", "text_profile_signature", "text"]
 
 [dependencies]
 rust-crypto = "^0.2"

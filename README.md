@@ -2,7 +2,7 @@
 
 # De-duplication Signature
 
-This library implements algorithms to generates a hash/signature/footprint in order to be used for detecting duplicate documents. A signature can be implemented in a few ways:
+This library implements algorithms to generates a hash/signature/footprint in order to be used for detecting duplicate documents. The algorithms are suitable for long text such as a news article or web page. A signature can be implemented in a few ways:
 
 * [TextProfileSignature](http://wiki.apache.org/solr/TextProfileSignature): Fuzzy hashing implementation from Apache Nutch for near duplicate detection. It's tunable but works best on longer text.
 * [Lookup3](http://burtleburtle.net/bob/c/lookup3.c): 64-bit hash used for exact duplicate detection. This is much faster than MD5 and smaller to store.
@@ -15,7 +15,7 @@ This library implements algorithms to generates a hash/signature/footprint in or
 Add this to the Cargo.toml:
 
     [dependencies]
-    dedup_signature = "^0.1.0"
+    dedup_signature = "^0.2.0"
 
 
 ## Getting Started
